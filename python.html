@@ -50,7 +50,7 @@ body {
     position: relative;
 }
 
-/* Animated Background Particles */
+
 .particle-container {
     position: fixed;
     top: 0;
@@ -71,7 +71,7 @@ body {
     animation: particle linear infinite;
 }
 
-/* Glassmorphism Container */
+
 .glass-container {
     position: absolute;
     top: 50%;
@@ -89,7 +89,7 @@ body {
     z-index: 10;
 }
 
-/* Menubar with 3D effect */
+
 .menubar {
     background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
     backdrop-filter: blur(10px);
@@ -180,7 +180,7 @@ body {
     animation: float 3s ease-in-out infinite;
 }
 
-/* Shell Container */
+
 .shell-container { 
     height: calc(100% - 50px);
     display: flex; 
@@ -201,7 +201,7 @@ body {
     position: relative;
 }
 
-/* Custom Scrollbar with 3D effect */
+
 .shell-output::-webkit-scrollbar {
     width: 14px;
 }
@@ -225,7 +225,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Shell Lines with advanced animations */
+
 .shell-line { 
     margin: 3px 0;
     white-space: pre-wrap; 
@@ -333,7 +333,7 @@ body {
     animation: float 2s ease-in-out infinite;
 }
 
-/* Input Container with Glassmorphism */
+
 .input-container {
     display: flex;
     padding: 16px 24px 20px 24px;
@@ -399,7 +399,7 @@ body {
     opacity: 0.7;
 }
 
-/* Typing Indicator with 3D effect */
+
 .typing-indicator {
     position: absolute;
     bottom: 24px;
@@ -445,7 +445,7 @@ body {
     30% { transform: translateY(-10px) scale(1.2); }
 }
 
-/* Info Panel with advanced styling */
+
 .info-panel {
     position: fixed;
     bottom: 100px;
@@ -515,7 +515,7 @@ body {
     box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
 }
 
-/* Command Suggestions */
+
 .suggestions-panel {
     position: absolute;
     bottom: 100%;
@@ -560,7 +560,6 @@ body {
     transform: translateX(4px);
 }
 
-/* Loading Animation */
 .loading-overlay {
     position: absolute;
     top: 0;
@@ -595,10 +594,10 @@ body {
 </style>
 </head>
 <body>
-<!-- Particle Background -->
+
 <div class="particle-container" id="particleContainer"></div>
 
-<!-- Main Glass Container -->
+
 <div class="glass-container">
     <div class="menubar">
         <span class="menu-item">File</span>
@@ -620,7 +619,7 @@ body {
     
     <div class="shell-container">
         <div class="shell-output" id="output">
-            <div class="shell-line banner">Python 3.13.5 (main, Jul 15 2025, 23:37:00) [GCC 14.2.0] on linux</div>
+            <div class="shell-line banner">Python 3.13.5 (main, Jul 15 2025, 23:37:00) [GCC 14.2.0] on Web</div>
             <div class="shell-line banner">Type "help", "copyright", "credits" or "license" for more information.</div>
         </div>
         
@@ -670,17 +669,17 @@ body {
     </div>
 </div>
 <script>
-  // ID se element select karo
+  
   const fileMenu = document.getElementById('con');
 
-  // Click event add karo
-  fileMenu.style.cursor = 'pointer'; // cursor pointer banado
+  
+  fileMenu.style.cursor = 'pointer'; 
   fileMenu.addEventListener('click', function() {
-    window.location.href = 'https://aryansingh783.github.io/python/'; // yaha apna URL daalo
+    window.location.href = 'https://aryansingh783.github.io/python/'; 
   });
 </script>
 <script>
-// Create animated particles
+
 const particleContainer = document.getElementById('particleContainer');
 for (let i = 0; i < 50; i++) {
     const particle = document.createElement('div');
@@ -702,7 +701,7 @@ let historyIndex = -1;
 let isExecuting = false;
 let typingTimer;
 
-// Show info panel
+
 setTimeout(() => {
     infoPanel.classList.add('visible');
     setTimeout(() => {
@@ -710,7 +709,7 @@ setTimeout(() => {
     }, 8000);
 }, 2000);
 
-// Auto-resize textarea
+
 commandInput.addEventListener('input', () => {
     commandInput.style.height = 'auto';
     commandInput.style.height = commandInput.scrollHeight + 'px';
@@ -726,7 +725,6 @@ commandInput.addEventListener('input', () => {
     }
 });
 
-// Show suggestions on focus
 commandInput.addEventListener('focus', () => {
     if (commandInput.value.length === 0) {
         setTimeout(() => {
@@ -741,7 +739,7 @@ commandInput.addEventListener('blur', () => {
     }, 200);
 });
 
-// Suggestion click handlers
+
 document.querySelectorAll('.suggestion-item').forEach(item => {
     item.addEventListener('mousedown', (e) => {
         e.preventDefault();
@@ -788,7 +786,7 @@ async function executeCommand(cmd) {
     typingIndicator.classList.remove('active');
     loadingOverlay.classList.add('active');
     
-    // Handle special commands
+    
     if (cmd === 'clear()' || cmd === 'clear') {
         output.innerHTML = '';
         isExecuting = false;
@@ -805,7 +803,7 @@ async function executeCommand(cmd) {
         return;
     }
     
-    // Execute Python code
+
     try {
         const response = await fetch('https://extent-letting-cause-treating.trycloudflare.com/run', {
             method: 'POST',
@@ -881,14 +879,14 @@ commandInput.addEventListener('keydown', async (e) => {
     }
 });
 
-// Focus on input when clicking anywhere
+
 document.addEventListener('click', (e) => {
     if (!suggestionsPanel.contains(e.target)) {
         commandInput.focus();
     }
 });
 
-// Add hover effects to shell lines
+
 output.addEventListener('mouseover', (e) => {
     if (e.target.classList.contains('shell-line')) {
         e.target.style.transform = 'translateX(4px)';
