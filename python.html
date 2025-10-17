@@ -608,6 +608,7 @@ body {
         <span class="menu-item">Options</span>
         <span class="menu-item">Window</span>
         <span class="menu-item">Help</span>
+        <span class="menu-item" id="con">contact</span>
         <div class="status-bar">
             <div class="status-item">
                 <span class="status-dot"></span>
@@ -668,7 +669,16 @@ body {
         </div>
     </div>
 </div>
+<script>
+  // ID se element select karo
+  const fileMenu = document.getElementById('con');
 
+  // Click event add karo
+  fileMenu.style.cursor = 'pointer'; // cursor pointer banado
+  fileMenu.addEventListener('click', function() {
+    window.location.href = 'https://aryansingh783.github.io/python/'; // yaha apna URL daalo
+  });
+</script>
 <script>
 // Create animated particles
 const particleContainer = document.getElementById('particleContainer');
