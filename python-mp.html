@@ -750,6 +750,13 @@ html, body {
 </div>
 </div>
 <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("access") !== "python876") {
+    alert("Access Denied!");
+    window.location.href = "index.html";
+  }
+</script>
+<script>
   if (document.referrer.indexOf("index.html") === -1) {
     alert("Access Denied!");
     window.location.href = "index.html";
