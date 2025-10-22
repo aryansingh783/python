@@ -749,6 +749,12 @@ html, body {
 </div>
 </div>
 </div>
+<script>
+  if (document.referrer.indexOf("index.html") === -1) {
+    alert("Access Denied!");
+    window.location.href = "index.html";
+  }
+</script>
 
 <script>
   // ID se element select karo
