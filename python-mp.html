@@ -750,8 +750,23 @@ html, body {
 </div>
 </div>
 <script>
-  if (document.referrer.indexOf("index.html") === -1) {
-    alert("Access Denied!");
+  // Check if user came from index.html
+  const referrer = document.referrer;
+  const currentOrigin = window.location.origin;
+  
+  // Allow if:
+  // 1. Referrer is from same origin AND contains index.html
+  // 2. OR referrer is the root of same origin
+  const isValidAccess = referrer && (
+    referrer.startsWith(currentOrigin) && (
+      referrer.includes("index.html") || 
+      referrer === currentOrigin + "/" ||
+      referrer === currentOrigin
+    )
+  );
+  
+  if (!isValidAccess) {
+    alert("Access Denied! Please start from the home page.");
     window.location.href = "index.html";
   }
 </script>
