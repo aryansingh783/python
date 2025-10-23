@@ -368,8 +368,8 @@ p {
         
         <div class="section">
             <h2>Continue to Website</h2>
-            <a href="python-pc.html" class="button">Python IDLE for Computer</a>
-            <a href="python-mp.html" class="button">Python IDLE for Mobile Phone</a>
+            <a href="python-pc.html" class="button" onclick="sessionStorage.setItem('accessGranted', 'true')">Python IDLE for Computer</a>
+            <a href="python-mp.html" class="button" onclick="sessionStorage.setItem('accessGranted', 'true')">Python IDLE for Mobile Phone</a>
         </div>
 
         <button class="button" id="logoutBtn" style="background: linear-gradient(135deg, #f093fb, #f5576c); margin-top: 20px; width: 100%;">
@@ -747,3 +747,4 @@ console.log('Firebase Auth with Google Sign-In initialized successfully');
 </script>
 </body>
 </html>
+
