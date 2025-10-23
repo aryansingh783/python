@@ -68,6 +68,41 @@ p {
     cursor: not-allowed;
     transform: none;
 }
+.button.google-btn {
+    background: #ffffff;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin: 15px 0;
+}
+.button.google-btn:hover {
+    background: #f8f8f8;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.google-icon {
+    width: 18px;
+    height: 18px;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #888;
+    font-size: 0.85rem;
+}
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.divider span {
+    padding: 0 10px;
+}
 .section {
     margin: 20px 0;
     padding: 20px 0;
@@ -80,14 +115,12 @@ p {
     font-weight: 700;
     color: #ffffff;
 }
-/* Page visibility */
 .page {
     display: none;
 }
 .page.active {
     display: block;
 }
-/* Login Page Styles */
 .input-group {
     margin: 15px 0;
     text-align: left;
@@ -116,7 +149,6 @@ p {
     border-color: #00f2fe;
     box-shadow: 0 0 5px rgba(0,242,254,0.3);
 }
-
 .message {
     padding: 10px;
     border-radius: 8px;
@@ -136,11 +168,6 @@ p {
     background: rgba(85,255,85,0.2);
     border: 1px solid #55ff55;
     color: #88ff88;
-}
-.info-msg {
-    background: rgba(0,242,254,0.2);
-    border: 1px solid #00f2fe;
-    color: #00f2fe;
 }
 .toggle-link {
     color: #00f2fe;
@@ -173,12 +200,73 @@ p {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
-@media (max-width: 600px){
-    .glass-container { padding: 30px 20px; }
-    h1 { font-size: 1.6rem; }
-    h2 { font-size: 1.1rem; }
-    p { font-size: 0.95rem; }
-    .button { padding: 10px 20px; font-size: 0.9rem; }
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+    .glass-container { 
+        padding: 25px 20px;
+        margin: 10px 0;
+    }
+    h1 { 
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    h2 { 
+        font-size: 1.1rem;
+        margin: 15px 0 10px 0;
+    }
+    p { 
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    .button { 
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin: 6px;
+    }
+    .button.google-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    .section {
+        margin: 15px 0;
+        padding: 15px 0;
+    }
+    .footer-text {
+        font-size: 0.9rem;
+        margin-top: 20px;
+    }
+    .input-group input {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet Optimization */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .glass-container {
+        max-width: 600px;
+        padding: 45px 40px;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+    .glass-container {
+        max-width: 550px;
+        padding: 50px 40px;
+    }
 }
 </style>
 </head>
@@ -203,7 +291,7 @@ p {
             <h2>Continue to Website</h2>
             <button class="button" id="continueBtn">Login to Continue</button>
         </div>
-        <p class="footer-text">— Developed & Maintained by Aryan Singh</p>
+        <p class="footer-text">– Developed & Maintained by Aryan Singh</p>
     </div>
 
     <!-- Login Page -->
@@ -212,6 +300,18 @@ p {
         <p>Please login to continue</p>
         
         <div id="messageContainer"></div>
+        
+        <button class="button google-btn" id="googleSignInBtn">
+            <svg class="google-icon" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span>Sign in with Google</span>
+        </button>
+
+        <div class="divider"><span>OR</span></div>
         
         <div id="emailLoginForm">
             <div class="input-group">
@@ -222,7 +322,7 @@ p {
                 <label for="loginPassword">Password</label>
                 <input type="password" id="loginPassword" placeholder="Enter password" autocomplete="current-password">
             </div>
-            <button class="button" id="emailLoginBtn" style="width: 100%;">Login</button>
+            <button class="button" id="emailLoginBtn" style="width: 100%;">Login with Email</button>
             <p class="toggle-link" id="showSignupLink">Don't have an account? Sign Up</p>
         </div>
 
@@ -239,7 +339,7 @@ p {
                 <label for="signupConfirmPassword">Confirm Password</label>
                 <input type="password" id="signupConfirmPassword" placeholder="Re-enter password" autocomplete="new-password">
             </div>
-            <button class="button" id="emailSignupBtn" style="width: 100%;">Sign Up</button>
+            <button class="button" id="emailSignupBtn" style="width: 100%;">Sign Up with Email</button>
             <p class="toggle-link" id="showLoginLink">Already have an account? Login</p>
         </div>
 
@@ -272,17 +372,17 @@ p {
             <a href="python-mp.html" class="button">Python IDLE for Mobile Phone</a>
         </div>
 
-        <button class="button" id="logoutBtn" style="background: linear-gradient(135deg, #f093fb, #f5576c); margin-top: 20px;">
+        <button class="button" id="logoutBtn" style="background: linear-gradient(135deg, #f093fb, #f5576c); margin-top: 20px; width: 100%;">
             Logout
         </button>
-        <p class="footer-text">— Developed & Maintained by Aryan Singh</p>
+        <p class="footer-text">– Developed & Maintained by Aryan Singh</p>
     </div>
 </div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -299,6 +399,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
 // State management
 let currentPage = 'warning';
@@ -313,6 +414,7 @@ const pages = {
 
 const buttons = {
     continue: document.getElementById('continueBtn'),
+    googleSignIn: document.getElementById('googleSignInBtn'),
     emailLogin: document.getElementById('emailLoginBtn'),
     emailSignup: document.getElementById('emailSignupBtn'),
     logout: document.getElementById('logoutBtn'),
@@ -388,6 +490,38 @@ function validateEmail(email) {
 }
 
 // Auth Functions
+async function handleGoogleSignIn() {
+    if (isProcessing) return;
+    isProcessing = true;
+    
+    clearMessages();
+    setButtonLoading(buttons.googleSignIn, true);
+    
+    try {
+        const result = await signInWithPopup(auth, googleProvider);
+        console.log('Google Sign-In Success:', result.user.email);
+        showMessage('Login successful! Redirecting...', 'success');
+    } catch (error) {
+        console.error('Google Sign-In Error:', error);
+        let errorMessage = 'Google sign-in failed. ';
+        
+        if (error.code === 'auth/popup-closed-by-user') {
+            errorMessage += 'Sign-in cancelled.';
+        } else if (error.code === 'auth/popup-blocked') {
+            errorMessage += 'Popup blocked. Please allow popups for this site.';
+        } else if (error.code === 'auth/account-exists-with-different-credential') {
+            errorMessage += 'Account exists with different sign-in method.';
+        } else {
+            errorMessage += 'Please try again.';
+        }
+        
+        showMessage(errorMessage, 'error');
+    } finally {
+        isProcessing = false;
+        setButtonLoading(buttons.googleSignIn, false);
+    }
+}
+
 async function handleEmailLogin() {
     if (isProcessing) return;
     isProcessing = true;
@@ -567,6 +701,8 @@ buttons.continue.addEventListener('click', () => {
     showPage('login');
 });
 
+buttons.googleSignIn.addEventListener('click', handleGoogleSignIn);
+
 buttons.emailLogin.addEventListener('click', handleEmailLogin);
 
 buttons.emailSignup.addEventListener('click', handleEmailSignup);
@@ -607,9 +743,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-console.log('Firebase Auth initialized successfully');
+console.log('Firebase Auth with Google Sign-In initialized successfully');
 </script>
 </body>
 </html>
-
-
