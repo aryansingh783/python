@@ -846,7 +846,8 @@ async function executeCommand(cmd) {
         
     } catch(err) {
         addOutput('⚠️ Error connecting to Python server: ' + err.message, 'error');
-        addOutput('Make sure Python server is running on http://127.0.0.1:5000', 'error');
+        addOutput('Backend server not responding — ensure your Python backend server is running.', 'error');
+        addOutput('If the issue persists, please contact the developer to fix it', 'error');
     }
     
     loadingOverlay.classList.remove('active');
